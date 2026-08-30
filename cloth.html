@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cloth Physics</title>
+
+    <style>
+        body {
+            margin: 0;
+            min-height: 100vh;
+            overflow: hidden;
+            background: black;
+            color: #ffff;
+            font-family: Inter, system-ui, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .cont {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 240px;
+            padding: 18px;
+            border-radius: 18px;
+            background: #212121;
+            border: 1px solid #3f3f3f;
+            backdrop-filter: blur(14px);
+        }
+
+        .cont h1 {
+            margin: 0 0 14px;
+            font-size: 1.1rem;
+            letter-spacing: 0.02em;
+        }
+
+        .cont label {
+            display: block;
+            margin: 10px 0 4px;
+            font-size: 0.9rem;
+            color: #adadad;
+        }
+
+        .cont input[type='range'] {
+            width: 100%;
+            margin-top: 6px;
+        }
+
+        .cont input[type='checkbox'] {
+            margin-right: 8px;
+        }
+
+        .cont button {
+            width: 100%;
+            margin-top: 12px;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 10px;
+            background: #0679eb;
+            color: #ffff;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .cont p {
+            margin: 12px 0 0;
+            font-size: 0.82rem;
+            line-height: 1.4;
+            color: #adadad;
+        }
+    </style>
+</head>
+<body>
+    <div class="cont">
+        <h1>Cloth Physics Demo</h1>
+        <label>Gravity <span id="gravityValue">0.50</span></label>
+        <input id="gravity" type="range" min="0" max="1.2" step="0.01" value="0.5">
+
+        <label>Friction <span id="frictionValue">0.99</span></label>
+        <input id="friction" type="range" min="0.90" max="1" step="0.001" value="0.99">
+
+        <label>Constraint passes <span id="iterationsValue">5</span></label>
+        <input id="iterations" type="range" min="1" max="12" step="1" value="5">
+
+        <label>Wind <span id="windValue">0.00</span></label>
+        <input id="wind" type="range" min="-0.3" max="0.3" step="0.01" value="0">
+
+        <label><input id="windToggle" type="checkbox">Enable wind</label>
+        <button id="reset">Reset cloth</button>
+        <p>Drag points on the cloth to feel the physics. Red lines are under tension while blue lines are compressed.</p>
+    </div>
+
+    <canvas id="c"></canvas>
+    <script src="main.js"></script>
+</body>
+</html>
